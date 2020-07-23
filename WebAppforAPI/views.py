@@ -21,3 +21,32 @@ def IdealWeight(heightdata):
     
     except ValueError as e:
         return Response(e.args[0], status.HTTP_404_NOT_FOUND)
+
+@api_view(['POST'])
+def GetSquaresOf(numberdata):
+    try:
+        nums=json.loads(numberdata.body)
+        squaredNums=str()
+        sqrNum = ""
+
+        for n in nums:
+            if isinstance(n, int):
+                sqrNum = str(n * n)
+            elif isinstance(n , float):
+                sqrNum = str(float(n) * float(n))
+            elif n.isdigit():
+                sqrNum = str(int(n) * int(n))
+            elif n.replace('.', '', 1).isdigit() and n.count('.') < 2:
+                sqrNum = str(float(n) * float(n))
+            else:
+                sqrNum = str(int(n) * int(n))
+        
+            if len(squaredNums) < 1:
+                squaredNums = sqrNum
+            else:
+                squaredNums += ", " + str(sqrNum)
+
+        return JsonResponse("Squared Numbers: " + squaredNums, safe=False)
+    
+    except ValueError as e:
+        return Response(e.args[0], status.HTTP_404_NOT_FOUND)

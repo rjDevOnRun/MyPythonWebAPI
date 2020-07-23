@@ -1,3 +1,4 @@
+#PythonWebAPI
 https://www.youtube.com/watch?v=nN2Vp15AW5w
 
 - install python
@@ -23,7 +24,7 @@ https://www.youtube.com/watch?v=nN2Vp15AW5w
 ----------------------------------------------------------------------
 	  settings.py (register frmwork and our web-app)
 	
-#1: under the 'INSTALLED_APPS' section		
+1: under the 'INSTALLED_APPS' section		
 	Add below line....
 		'rest_framework',
 		'WebAppforAPI'
@@ -32,7 +33,7 @@ https://www.youtube.com/watch?v=nN2Vp15AW5w
 ----------------------------------------------------------------------
 	  views.py (add action method)
 	
-#1: add imports...
+1: add imports...
 
 	from django.shortcuts import render
 	from django.http import Http404
@@ -45,7 +46,7 @@ https://www.youtube.com/watch?v=nN2Vp15AW5w
 	from django.conf import settings
 	import json
 
-#2: under the views...		
+2: under the views...		
 	@api_view(['POST'])
 	def IdealWeight(heightdata):
 	    try:
@@ -60,14 +61,14 @@ https://www.youtube.com/watch?v=nN2Vp15AW5w
 ----------------------------------------------------------------------
 	  urls.py (for routing to appropriate actions)
 
-#1: add imports...
+1: add imports...
 	from django.conf.urls import url
 	from django.contrib import admin
 	from WebAppforAPI import views <<<------
 
 
 
-#1: under the "'urlpatterns'" section		
+2 under the "'urlpatterns'" section		
 	add below code:
 	
 	url(r'^admin/', admin.site.urls),
@@ -80,7 +81,7 @@ https://www.youtube.com/watch?v=nN2Vp15AW5w
 - in cmd environment
 
 	Runs the webapi server
-- < D:\DEVELOPMENT\PYTHON\SampleAPI > python manage.py startapp MyWebApp
+- < D:\DEVELOPMENT\PYTHON\SampleAPI > python manage.py runserver
 
 - Open 'POSTMAN'
 - Request a Http 'POST' to url

@@ -19,5 +19,6 @@ from WebAppforAPI import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^idealweight/', views.IdealWeight)
+    url(r'^idealweight/', views.IdealWeight),
+    url(r'^squareNums/', views.GetSquaresOf)
 ]
